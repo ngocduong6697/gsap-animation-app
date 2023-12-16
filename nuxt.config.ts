@@ -1,10 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import { createResolver } from "@nuxt/kit";
-const { resolve } = createResolver(import.meta.url);
-const API_URL = process.env.BASE_API_URL;
+const BASE_URL = process.env.VITE_APP_BASE_URL;
+const API_URL = process.env.VITE_APP_API_URL;
 
 export default defineNuxtConfig({
+  devServer: {
+    port: 4000,
+    host: BASE_URL,
+  },
   devtools: { enabled: true },
   dev: process.env.NODE_ENV !== "production",
   vite: {
